@@ -66,13 +66,24 @@ var CurrencyInfo = (function() {
 
     var getCurrencyPattern = function(location) {
 
-        if(location.length > 5 || location.length === 0) return null;
-
-        if(typeof currencies[location] === 'undefined')
+        if (!isLocationValid(location)) return null;
+        
+        //no location found: return the default
+        if (typeof currencies[location] === 'undefined')
             return defaultCurrency;
  
         return currencies[location];
     };
+
+    function isLocationValid(location) {
+        
+        if ( location == null ||
+            location.length > 5 ||
+            location.length === 0)
+             return false;
+
+         return true;
+    }
 
     return {
         getCurrencyPattern: getCurrencyPattern
