@@ -1,5 +1,5 @@
 QUnit.test("getCurrencyPatter method returns object", function (assert) {
-    assert.expect(13);
+    assert.expect(14);
 
     assert.equal(typeof CurrencyInfo.getCurrencyPattern('de_de'), 'object');
     assert.equal(typeof CurrencyInfo.getCurrencyPattern('de_ch'), 'object');
@@ -14,6 +14,13 @@ QUnit.test("getCurrencyPatter method returns object", function (assert) {
     assert.equal(typeof CurrencyInfo.getCurrencyPattern('eu_pt'), 'object');        //invalid
     assert.equal(typeof CurrencyInfo.getCurrencyPattern(''), 'object');             //invalid
     assert.equal(typeof CurrencyInfo.getCurrencyPattern('test_invalid'), 'object'); //invalid
+    assert.equal(typeof CurrencyInfo.getCurrencyPattern(null), 'object'); //invalid
+});
+
+QUnit.test("Null location returns error", function(assert) {
+    assert.expect(1);
+
+    assert.equal(CurrencyInfo.getCurrencyPattern(null), null);
 });
 
 QUnit.test("Invalid Location length returns null", function(assert) {
