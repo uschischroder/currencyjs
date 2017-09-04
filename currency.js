@@ -4,61 +4,78 @@ var CurrencyInfo = (function() {
             de_de: {
                 country: 'Deutschland',
                 symbol: '€',
-                decimalSeparator: '.'
+                decimalSeparator: ',',
+                thousandSeparator: ' '
             },
 
             de_ch: {
                 country: 'Schweiz',
                 symbol: 'Fr',
-                decimalSeparator: ','
+                decimalSeparator: '.',
+                thousandSeparator: ' '
             },
 
             en_au: {
                 country: 'Australia / New Zealand',
                 symbol: 'AU$',
-                decimalSeparator: '.'
+                decimalSeparator: '.',
+                thousandSeparator: ','
             },
 
             en_ca: {
                 country: 'Canada',
                 symbol: 'CA$',
-                decimalSeparator: '.'
+                decimalSeparator: '.',
+                thousandSeparator: ' '
             },
 
             en_uk:  {
                 country: 'United Kingdom',
                 symbol: '£',
-                decimalSeparator: '.'
+                decimalSeparator: '.',
+                thousandSeparator: ','
             },
 
             en_us : {
                 country: 'USA',
                 symbol: '$',
-                decimalSeparator: '.'
+                decimalSeparator: '.',
+                thousandSeparator: ','
             },
 
             es_es: {
                 country: 'España',
                 symbol: '€',
-                decimalSeparator: '.'
+                decimalSeparator: ',',
+                thousandSeparator: ' '
             },
 
             it_it: {
                 country: 'Italia',
                 symbol: '€',
-                decimalSeparator: '.'
+                decimalSeparator: ',',
+                thousandSeparator: ' '
             },
 
-            ja: {
+            en_jp: {
                 country: 'Japan',
                 symbol: '¥',
-                decimalSeparator: '.'
+                decimalSeparator: '.',
+                thousandSeparator: ','
             },
 
             fr_fr: {
                 country: 'France',
                 symbol: '€',
-                decimalSeparator: '.'
+                decimalSeparator: ',',
+                thousandSeparator: ' '
+            },
+
+            pl_pl: {
+                country: 'Polska',
+                symbol: 'zł',
+                decimalSeparator: ',',
+                thousandSeparator: ' '
             }
     };
 
@@ -67,22 +84,24 @@ var CurrencyInfo = (function() {
     var getCurrencyPattern = function(location) {
 
         if (!isLocationValid(location)) return null;
-        
+
         //no location found: return the default
         if (typeof currencies[location] === 'undefined')
             return defaultCurrency;
- 
+
         return currencies[location];
     };
 
     function isLocationValid(location) {
-        
-        if ( location == null ||
-            location.length > 5 ||
-            location.length === 0)
-             return false;
 
-         return true;
+        if (
+            location == null ||
+            location.length > 5 ||
+            location.length === 0
+        )
+            return false;
+
+        return true;
     }
 
     return {
