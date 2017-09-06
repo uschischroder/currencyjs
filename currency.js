@@ -59,7 +59,19 @@ var CurrencyInfo = (function() {
                 country: 'France',
                 symbol: '€',
                 decimalSeparator: '.'
-            }
+            },
+            
+            ir: {
+                country: 'Ireland',
+                symbol: '€',
+                decimalSeparator: '.'
+            },
+
+            cn: {
+                country: 'China',
+                symbol: '¥',
+                decimalSeparator: '.'
+            }	
     };
 
     var defaultCurrency = currencies.de_de;

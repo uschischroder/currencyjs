@@ -1,5 +1,5 @@
 QUnit.test("getCurrencyPatter method returns object", function (assert) {
-    assert.expect(14);
+    assert.expect(16);
 
     assert.equal(typeof CurrencyInfo.getCurrencyPattern('de_de'), 'object');
     assert.equal(typeof CurrencyInfo.getCurrencyPattern('de_ch'), 'object');
@@ -11,6 +11,8 @@ QUnit.test("getCurrencyPatter method returns object", function (assert) {
     assert.equal(typeof CurrencyInfo.getCurrencyPattern('it_it'), 'object');
     assert.equal(typeof CurrencyInfo.getCurrencyPattern('ja'), 'object');
     assert.equal(typeof CurrencyInfo.getCurrencyPattern('fr_fr'), 'object');
+    assert.equal(typeof CurrencyInfo.getCurrencyPattern('ir'), 'object');
+    assert.equal(typeof CurrencyInfo.getCurrencyPattern('cn'), 'object');
     assert.equal(typeof CurrencyInfo.getCurrencyPattern('eu_pt'), 'object');        //invalid
     assert.equal(typeof CurrencyInfo.getCurrencyPattern(''), 'object');             //invalid
     assert.equal(typeof CurrencyInfo.getCurrencyPattern('test_invalid'), 'object'); //invalid
@@ -108,6 +110,22 @@ QUnit.test("Location for Franch (fr_fr) returns correct info", function(assert) 
     assert.equal(CurrencyInfo.getCurrencyPattern('fr_fr').country,"France");
     assert.equal(CurrencyInfo.getCurrencyPattern('fr_fr').symbol,"€" );
     assert.equal(CurrencyInfo.getCurrencyPattern('fr_fr').decimalSeparator,"." );
+});
+
+QUnit.test("Location for Ireland (ir) returns correct info",function(assert) {
+    assert.expect(3);
+
+    assert.equal(CurrencyInfo.getCurrencyPattern('ir').country,"Ireland");
+    assert.equal(CurrencyInfo.getCurrencyPattern('ir').symbol,"€");
+    assert.equal(CurrencyInfo.getCurrencyPattern('ir').decimalSeparator,".");
+});
+
+QUnit.test("Location for China (cn) returns correct info",function(assert) {
+    assert.expect(3);
+
+    assert.equal(CurrencyInfo.getCurrencyPattern('cn').country, "China");
+    assert.equal(CurrencyInfo.getCurrencyPattern('cn').symbol,"¥");
+    assert.equal(CurrencyInfo.getCurrencyPattern('cn').decimalSeparator,".");
 });
 
 QUnit.test("Invalid Location returns default info", function(assert) {
